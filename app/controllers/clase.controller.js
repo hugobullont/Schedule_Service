@@ -72,7 +72,7 @@ exports.findNextClass = (req, res) => {
     Clase.find({dia: day})
     .then(clases => {
         for(var i = 0; i < clases.length; i++){
-            if((hour > clases[i].horaInicio)&&(hour<clases[i].horaFinal)){
+            if((hour > clases[i].horaInicio)&&(hour<clases[i].horaFinal-15)){
                 return res.send(clases[i]);
             }
         }

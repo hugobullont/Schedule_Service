@@ -32,8 +32,11 @@ End with an example of getting some data out of the system or using it for a lit
 ## Construido usando 
 
 [Node.js](https://nodejs.org/en/) - La Nueva Moda uwu
+
 [MongoDB](https://www.mongodb.com) - Los Amigos de Verdad no dejan que los Amigos usen BD's Relacionales
+
 [Express](https://expressjs.com) - El Web Framework que es la Nueva Moda 7u7
+
 [Mongoose](https://mongoosejs.com) - Modelado de Datos para la Nueva Moda :v 
 
 

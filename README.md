@@ -20,9 +20,10 @@ Lo primero que necesitamos es clonar el proyecto.
 git clone https://github.com/hugobullont/Schedule_Service.git
 ```
 
-Luego entramos al proyecto y ejecutamos
+Luego entramos al proyecto e instalamos los paquetes npm
 
 ```
+cd Schedule_Service
 npm install
 ```
 
@@ -32,7 +33,7 @@ En otra pantalla del terminal ejecutamos MongoDB (si es que ya no está siendo e
 sudo mongod
 ```
 
-Finalmente ejecutamos el servidor
+Finalmente ejecutamos el servidor en el terminal con el que instalamos los paquetes npm
 
 ```
 node server.js

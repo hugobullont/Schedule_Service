@@ -12,22 +12,31 @@ Es necesario tener instalado [Node.js](https://nodejs.org/en/) y [MongoDB](https
 
 ### Instalación
 
-A step by step series of examples that tell you how to get a development env running
+Lo recomendable es seguir este tutorial al pie de la letra si no quieres que algo explote.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+Lo primero que necesitamos es clonar el proyecto.
 
 ```
-until finished
+git clone https://github.com/hugobullont/Schedule_Service.git
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+Luego entramos al proyecto y ejecutamos
 
+```
+npm install
+```
+
+En otra pantalla del terminal ejecutamos MongoDB (si es que ya no está siendo ejecutado)
+
+```
+sudo mongod
+```
+
+Finalmente ejecutamos el servidor
+
+```
+node server.js
+```
 
 ## Construido usando 
 

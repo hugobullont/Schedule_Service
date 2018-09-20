@@ -6,7 +6,6 @@ const ExamenSchema = mongoose.Schema({
 module.exports = mongoose.model('Examen', ExamenSchema);
 
 const TrabajoSchema = mongoose.Schema({
-    tipo: String
 });
 
 module.exports = mongoose.model('Trabajo', TrabajoSchema);
@@ -20,7 +19,6 @@ const CursoSchema = mongoose.Schema({
     nombre: String,
     profesor: String,
     faltasRestantes: Number
-
 });
 
 module.exports = mongoose.model('Curso', CursoSchema);

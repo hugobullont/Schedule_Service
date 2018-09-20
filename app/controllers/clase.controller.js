@@ -1,45 +1,4 @@
-const Clase = require('../models/node.models.js');
-
-// Create and Save a new Note
-exports.create = (req, res) => {
-    // Validate request
-    if(!req.body.salon) {
-        return res.status(400).send({
-            message: "Una Clase debe tener salon."
-        });
-    }
-
-    // Create a Clase
-    const clase = new Clase({
-        horaInicio: req.body.horaInicio, 
-        horaFinal: req.body.horaFinal,
-        salon: req.body.salon,
-        dia: req.body.dia,
-        curso: req.body.curso
-    });
-
-    // Save Clase in the database
-    clase.save()
-    .then(data => {
-        res.send(data);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while creating the Clase."
-        });
-    });
-};
-
-// Retrieve and return all clases from the database.
-exports.findAll = (req, res) => {
-    Clase.find()
-    .then(clases => {
-        res.send(clases);
-    }).catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while retrieving clases."
-        });
-    });
-};
+const Clase = require('../models/clase.models.js');
 
 // Retrieve and return all clases from the database.
 exports.findPerDay = (req, res) => {

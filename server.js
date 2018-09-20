@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
     res.json({"message": "Welcome to Schedule application."});
 });
 
+require('./app/routes/curso.routes.js')(app);
 require('./app/routes/clase.routes.js')(app);
 
 // listen for requests

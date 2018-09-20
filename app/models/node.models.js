@@ -1,35 +1,18 @@
 const mongoose = require('mongoose');
 
-const ExamenSchema = mongoose.Schema({
-});
+require('../models/trabajo.models.js');
 
-module.exports = mongoose.model('Examen', ExamenSchema);
+require('../models/examen.models.js');
 
-const TrabajoSchema = mongoose.Schema({
-});
-
-module.exports = mongoose.model('Trabajo', TrabajoSchema);
-
-const TemaSchema = mongoose.Schema({
-});
-
-module.exports = mongoose.model('Tema',TemaSchema)
+require('../models/clase.models.js');
 
 const CursoSchema = mongoose.Schema({
     nombre: String,
     profesor: String,
-    faltasRestantes: Number
+    faltasRestantes: Number,
+    trabajos: [mongoose.model('Trabajo').schema],
+    examenes: [mongoose.model('Examen').schema],
+    clases: [mongoose.model('Clase').schema]
 });
 
 module.exports = mongoose.model('Curso', CursoSchema);
-
-const ClaseSchema = mongoose.Schema({
-    horaInicio: Number,
-    horaFinal: Number,
-    salon: String,
-    dia: String,
-    tipo: String,
-    curso: CursoSchema
-});
-
-module.exports = mongoose.model('Clase', ClaseSchema);

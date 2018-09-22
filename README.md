@@ -4,7 +4,7 @@ ScheduleService es un REST Web Service que maneja un horario universitario con c
 
 ## Utilización
 
-Estas vagas instrucciones te mostrarán como correr el servicio en un servidor local (probablemente también funcione en producción). 
+Estas vagas instrucciones te mostrarán como correr el servicio en un servidor local. 
 
 ### Pre-requisitos
 

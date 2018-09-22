@@ -39,13 +39,68 @@ Finalmente ejecutamos el servidor en el terminal con el que instalamos los paque
 node server.js
 ```
 
+### Probando
+
+El servicio ya se debería estar ejecutando si seguiste correctamente los pasos en http://localhost:3000/
+
+Las llamadas que puedes realizar son:
+
+```
+POST    /cursos                 Crea un curso (ver modelo abajo)
+GET     /cursos                 Retorna todos los cursos
+GET     /clases/{dia}           Retorna las clases de un día
+GET     /clases/{dia}/{hora}    Retorna la clase más cercana + info del curso
+```
+Considera dia como un día de la semana en español (ejemplo: Lunes) y la hora en el formato HHMM como número. (Para las fechas: YYYYMMDD).
+
+A continuación el modelo de body que debes mandar en el POST de Curso:
+
+```
+    {
+        "nombre": "Taller de Desempeño Profesional",
+        "profesor": "Marco Bruggman",
+        "faltasRestantes": 5,
+        "trabajos": [{
+        	"fechaDeEntrega": 20180928,
+    		"tipo": "Parcial",
+    		"grupal": true
+        }],
+        "examenes": [{
+        	"fecha": 20181005,
+    		"tipo": "Parcial",
+    		"temas": ["Tema 1","Tema 2"]
+        }],
+        "clases": [{
+        	"horaInicio": 1600,
+    		"horaFinal": 1900,
+			"salon": "H51",
+    		"dia": "Lunes",
+    		"tipo": "Presencial"
+        },{
+        	"horaInicio": 1600,
+    		"horaFinal": 1900,
+			"salon": "D17",
+    		"dia": "Jueves",
+    		"tipo": "Presencial"
+        }]
+    }
+```
+
+Para probar puedes utilizar las siguientes llamadas:
+
+```
+/cursos             Retornará los cursos ingresados
+/clases/Lunes       Retornará solo la info de las clases los Lunes
+/clases/Lunes/1300  Retornará la clase más cercana a las 13:00 (o la clase que esté ocurriendo en ese momento)
+```
+
 ## Construido usando 
 
 [Node.js](https://nodejs.org/en/) - La Nueva Moda uwu
 
 [MongoDB](https://www.mongodb.com) - Los Amigos de Verdad no dejan que los Amigos usen BD's Relacionales
 
-[Express](https://expressjs.com) - El Web Framework que es la Nueva Moda 7u7
+[Express](https://expressjs.com) - El Web Framework de la Nueva Moda 7u7
 
 [Mongoose](https://mongoosejs.com) - Modelado de Datos para la Nueva Moda :v 
 

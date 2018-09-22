@@ -94,14 +94,14 @@ Para probar puedes utilizar las siguientes llamadas:
 /clases/Lunes/1300  Retornará la clase más cercana a las 13:00 (o la clase que esté ocurriendo en ese momento)
 ```
 
-## Construido usando 
+## Desarrollado usando 
 
-[Node.js](https://nodejs.org/en/) - La Nueva Moda uwu
+[Node.js](https://nodejs.org/en/) - La Nueva Moda
 
 [MongoDB](https://www.mongodb.com) - Los Amigos de Verdad no dejan que los Amigos usen BD's Relacionales
 
-[Express](https://expressjs.com) - El Web Framework de la Nueva Moda 7u7
+[Express](https://expressjs.com) - El Web Framework de la Nueva Moda
 
-[Mongoose](https://mongoosejs.com) - Modelado de Datos para la Nueva Moda :v 
+[Mongoose](https://mongoosejs.com) - Modelado de Datos para la Nueva Moda
 
 

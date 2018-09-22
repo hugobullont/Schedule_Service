@@ -27,11 +27,13 @@ cd Schedule_Service
 npm install
 ```
 
-En otra pantalla del terminal ejecutamos MongoDB (si es que ya no está siendo ejecutado)
+En otra pantalla del terminal ejecutamos MongoDB (Si es que ya no está siendo ejecutado)
 
 ```
 sudo mongod
 ```
+
+Si lo estás ejecutando en Windows, revisa este [tutorial](https://stackoverflow.com/questions/20796714/how-do-i-start-mongo-db-from-windows) 
 
 Finalmente ejecutamos el servidor en el terminal con el que instalamos los paquetes npm
 

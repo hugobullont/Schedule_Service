@@ -1,4 +1,5 @@
 const Clase = require('../models/clase.models.js');
+const Curso = require('../models/node.models.js');
 
 // Retrieve and return all clases from the database.
 exports.findPerDay = (req, res) => {
@@ -48,7 +49,21 @@ exports.findNextClass = (req, res) => {
         if(claseActual === null){
             return res.send({message: "No hay Clases"});
         }
-        return res.send(claseActual);
+        //return res.send(claseActual);
+
+        Curso.findOne({'clases': {$elemMatch: {'_id': claseActual._id}}})
+        .then(curso =>{
+            var object = new Object();
+            var cursoFinal = new Object();
+            cursoFinal._id = curso._id;
+            cursoFinal.nombre = curso.nombre;
+            cursoFinal.profesor = curso.profesor;
+            cursoFinal.faltasRestantes = curso.faltasRestantes;
+            object.Curso = cursoFinal;
+            object.Clase = claseActual;
+
+            return res.send(object);
+        });
     });
     
 };

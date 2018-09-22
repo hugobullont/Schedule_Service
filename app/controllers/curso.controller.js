@@ -16,23 +16,42 @@ exports.create = (req, res) => {
         clases: req.body.clases*/
     });
 
-    const trabajos = new Trabajo({
-        "fechaDeEntrega": req.body.trabajos[0].fechaDeEntrega,
-        "tipo": req.body.trabajos[0].tipo,
-        "grupal": req.body.trabajos[0].grupal
-    });
-    //const examanes = new Examen(req.body.examanes[0]);
-    //const clases = new Clase(req.body.clases[0]);
+    const trabajosArray = req.body.trabajos;
+    for (var i = 0; i<trabajosArray.length; i++){
+        const trabajo = new Trabajo({
+            "fechaDeEntrega": trabajosArray[i].fechaDeEntrega,
+            "tipo": trabajosArray[i].tipo,
+            "grupal": trabajosArray[i].grupal
+        });
+        trabajo.save();
+        curso.trabajos.push(trabajo);
+    }
 
-    trabajos.save();
-    //examanes.save();
-    //clases.save();
+    const examenesArray = req.body.examenes;
+    for (var i=0; i<examenesArray.length; i++){
+        const examen = new Examen({
+            "fecha": examenesArray[i].fecha,
+            "tipo": examenesArray[i].tipo,
+            "temas": examenesArray[i].temas
+        });
+        examen.save();
+        curso.examenes.push(examen);
+    }
 
-    curso.trabajos.push(trabajos);
-    //curso.examenes.push(examanes);
-    //curso.clases.push(clases);
+    const clasesArray = req.body.clases;
+    for (var i=0; i<clasesArray.length; i++){
+        const clase = new Clase({
+            "horaInicio": clasesArray[i].horaInicio,
+            "horaFinal": clasesArray[i].horaFinal,
+            "salon": clasesArray[i].salon,
+            "dia": clasesArray[i].dia,
+            "tipo": clasesArray[i].tipo
+        });
+        clase.save();
+        curso.clases.push(clase);
+    }
 
-    // Save Clase in the database
+    // Save Curso in the database
     curso.save()
     .then(data => {
         res.send(data);
@@ -43,7 +62,7 @@ exports.create = (req, res) => {
     });
 };
 
-// Retrieve and return all clases from the database.
+// Retrieve and return all cursos from the database.
 exports.findAll = (req, res) => {
     Curso.find()
     .then(cursos => {

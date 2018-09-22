@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const TrabajoSchema = mongoose.Schema({
-    fechaDeEntrega: String,
+    fechaDeEntrega: Number,
     tipo: String,
     grupal: Boolean
 });
-
+//formatofecha YYYYMMDD
 module.exports = mongoose.model('Trabajo', TrabajoSchema);

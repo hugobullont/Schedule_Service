@@ -36,7 +36,7 @@ exports.findNextClass = (req, res) => {
     .then(clases => {
         for(var i = 0; i < clases.length; i++){
             if((hour > clases[i].horaInicio)&&(hour<clases[i].horaFinal-15)){
-                claseActual = res.send(clases[i]);
+                claseActual = clases[i];
                 find = true;
             }
         }

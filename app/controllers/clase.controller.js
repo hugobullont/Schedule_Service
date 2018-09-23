@@ -28,28 +28,32 @@ exports.findPerDay = (req, res) => {
 exports.findNextClass = (req, res) => {
     const day = req.params.day
     const hour = req.params.hour
+    var find = false;
+    var claseActual = null;
+    var hourAux = 2400; 
 
     Clase.find({dia: day})
     .then(clases => {
         for(var i = 0; i < clases.length; i++){
             if((hour > clases[i].horaInicio)&&(hour<clases[i].horaFinal-15)){
-                return res.send(clases[i]);
+                claseActual = res.send(clases[i]);
+                find = true;
             }
         }
-        var claseActual = null;
-        var hourAux = 2400; 
         
-        for(var i = 0; i < clases.length; i++){
-            if((hour<clases[i].horaInicio)&&(clases[i].horaInicio<hourAux)){
-                claseActual = clases[i];
-                hourAux = clases[i].horaInicio;
+        if(!find){
+            for(var i = 0; i < clases.length; i++){
+                if((hour<clases[i].horaInicio)&&(clases[i].horaInicio<hourAux)){
+                    claseActual = clases[i];
+                    hourAux = clases[i].horaInicio;
+                    find = true;
+                }
             }
         }
 
         if(claseActual === null){
             return res.send({message: "No hay Clases"});
         }
-        //return res.send(claseActual);
 
         Curso.findOne({'clases': {$elemMatch: {'_id': claseActual._id}}})
         .then(curso =>{

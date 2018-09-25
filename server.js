@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 
 require('./app/routes/curso.routes.js')(app);
 require('./app/routes/clase.routes.js')(app);
+require('./app/routes/trabajo.routes.js')(app);
 
 // listen for requests
 app.listen(3000, () => {

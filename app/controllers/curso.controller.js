@@ -2,6 +2,7 @@ const Curso = require('../models/node.models.js');
 const Trabajo = require('../models/trabajo.models.js');
 const Clase = require('../models/clase.models.js');
 const Examen = require('../models/examen.models.js');
+const Nota = require('../models/nota.models.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
@@ -46,6 +47,16 @@ exports.create = (req, res) => {
         });
         clase.save();
         curso.clases.push(clase);
+    }
+
+    const notasArray = req.body.notas;
+    for (var i=0; i<notasArray.length; i++){
+        const nota = new Nota({
+            "detalle": notasArray[i].detalle,
+            "valor": notasArray[i].valor
+        });
+        nota.save();
+        curso.notas.push(nota);
     }
 
     // Save Curso in the database

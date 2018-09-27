@@ -53,7 +53,8 @@ exports.create = (req, res) => {
     for (var i=0; i<notasArray.length; i++){
         const nota = new Nota({
             "detalle": notasArray[i].detalle,
-            "valor": notasArray[i].valor
+            "valor": notasArray[i].valor,
+            "porcentaje": notasArray[i].porcentaje
         });
         nota.save();
         curso.notas.push(nota);

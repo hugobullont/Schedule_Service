@@ -6,7 +6,7 @@ const Nota = require('../models/nota.models.js');
 
 // Create and Save a new Note
 exports.create = (req, res) => {
-
+    console.log("POST /cursos");
     // Create a Curso
     const curso = new Curso({
         nombre: req.body.nombre,
@@ -73,6 +73,7 @@ exports.create = (req, res) => {
 
 // Retrieve and return all cursos from the database.
 exports.findAll = (req, res) => {
+    console.log("GET /cursos");
     Curso.find()
     .then(cursos => {
         res.send(cursos);

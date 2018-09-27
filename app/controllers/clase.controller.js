@@ -4,6 +4,7 @@ const Curso = require('../models/node.models.js');
 // Retrieve and return all clases from the database.
 exports.findPerDay = (req, res) => {
     const day = req.params.day
+    console.log("GET /clases");
     Clase.find({dia: day})
     .then(clase => {
         if(!clase) {
@@ -28,6 +29,7 @@ exports.findPerDay = (req, res) => {
 exports.findNextClass = (req, res) => {
     const day = req.params.day
     const hour = req.params.hour
+    console.log("GET clases");
     var find = false;
     var claseActual = null;
     var hourAux = 2400; 

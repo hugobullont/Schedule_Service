@@ -3,6 +3,7 @@ const Examen = require('../models/examen.models.js');
 
  //GET Examen cercano para un curso via ID
  exports.findPerDateAndID = (req,res) => {
+    console.log("GET /examenes");
     const id = req.params.cursoId;
     const date = req.params.date;
     var todos = [];

@@ -3,6 +3,7 @@ const Trabajo = require('../models/trabajo.models.js');
 
  //GET Trabajo cercano para un curso via ID
  exports.findPerDateAndID = (req,res) => {
+    console.log("GET /trabajos");
     const id = req.params.cursoId;
     const date = req.params.date;
     var todos = [];

@@ -22,8 +22,8 @@ require('./app/routes/examen.routes.js')(app);
 require('./app/routes/nota.routes.js')(app);
 
 // listen for requests
-app.listen(3000, () => {
-    console.log("Server is listening on port 3000");
+app.listen(80, () => {
+    console.log("Server is listening on port 80");
 });
 
 // Configuring the database

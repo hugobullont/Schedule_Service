@@ -28,7 +28,7 @@ exports.totalNotasAcum = (req,res) => {
                 porcentaje += notas[i].porcentaje;
             }
             var object = new Object();
-            object.nombreCurso = curso[i].nombre;
+            object.nombreCurso = cursos[i].nombre;
             object.notaAcumulada = notaAcumulada;
             object.porcentaje = porcentaje;
             objects.push(object);

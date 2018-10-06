@@ -23,9 +23,9 @@ exports.totalNotasAcum = (req,res) => {
             var notaAcumulada = 0;
             var porcentaje = 0;
             for(var j = 0; j < notas.length; j++){
-                var percent = notas[i].porcentaje / 100;
-                notaAcumulada += notas[i].valor*percent;
-                porcentaje += notas[i].porcentaje;
+                var percent = notas[j].porcentaje / 100;
+                notaAcumulada += notas[j].valor*percent;
+                porcentaje += notas[j].porcentaje;
             }
             var object = new Object();
             object.nombreCurso = cursos[i].nombre;

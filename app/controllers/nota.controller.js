@@ -29,7 +29,7 @@ exports.totalNotasAcum = (req,res) => {
             }
             var object = new Object();
             object.nombreCurso = cursos[i].nombre;
-            object.notaAcumulada = notaAcumulada.toFixed(2);
+            object.notaAcumulada = notaAcumulada.toFixed();
             object.porcentaje = porcentaje;
             objects.push(object);
         }

@@ -54,7 +54,8 @@ GET     /clases/{dia}           		Retorna las clases de un día
 GET     /clases/{dia}/{hora}    		Retorna la clase más cercana + info del curso
 GET	/trabajos/{cursoID}/{fecha}		Retorna el trabajo más cercano de un curso
 GET	/examenes/{cursoID}/{fecha}		Retorna el examen más cercano de un curso
-GET	/notas/{cursoID}		Retorna todas las notas de un curso
+GET	/notas/{cursoID}			Retorna todas las notas de un curso
+GET	/notasAcumuladas			Retorna todas las notas acumuladas
 ```
 Considera dia como un día de la semana en español (ejemplo: Lunes) y la hora en el formato HHMM como número. (Para las fechas: YYYYMMDD).
 

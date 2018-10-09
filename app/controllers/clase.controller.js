@@ -73,3 +73,47 @@ exports.findNextClass = (req, res) => {
     });
     
 };
+
+exports.findNextClassesPerDay = (req, res) => {
+    const day = req.params.day
+    const hour = req.params.hour
+    console.log("GET clasesPendientes");
+    var clasesPendientes= [];
+    var respuesta = [];
+
+    Clase.find({dia: day})
+    .then(clases => {
+        for(var i = 0; i < clases.length; i++){
+            if((hour > clases[i].horaInicio)&&(hour<clases[i].horaFinal)){
+                clasesPendientes.push(clases[i]);
+            }
+        }
+        
+        for(var i = 0; i < clases.length; i++){
+            if((hour<clases[i].horaInicio)){
+                clasesPendientes.push(clases[i]);
+            }
+        }
+
+        if(clasesPendientes.length === 0){
+            return res.send({message: "No hay Clases"});
+        }
+
+        for (var i = 0; i < clasesPendientes.length; i++){
+            Curso.findOne({'clases': {$elemMatch: {'_id': clasesPendientes[i]._id}}})
+            .then(curso =>{
+                var object = new Object();
+                var cursoFinal = new Object();
+                cursoFinal._id = curso._id;
+                cursoFinal.nombre = curso.nombre;
+                cursoFinal.profesor = curso.profesor;
+                cursoFinal.faltasRestantes = curso.faltasRestantes;
+                object.Curso = cursoFinal;
+                object.Clase = clasesPendientes[i];
+                respuesta.push(object);
+            });
+        }
+
+        return res.send(respuesta);
+    });
+};

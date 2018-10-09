@@ -6,4 +6,6 @@ module.exports = (app) => {
 
     app.get('/clases/:day/:hour', clases.findNextClass);
 
+    app.get('/clasesPendientes/:day/:hour', clases.findNextClassesPerDay);
+
 };

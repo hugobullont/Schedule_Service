@@ -98,7 +98,8 @@ exports.findNextClassesPerDay = (req, res) => {
         if(clasesPendientes.length === 0){
             return res.send({message: "No hay Clases"});
         }
-
+        var final = clasesPendientes.length;
+        var contador = 1;
         for (var i = 0; i < clasesPendientes.length; i++){
             Curso.findOne({'clases': {$elemMatch: {'_id': clasesPendientes[i]._id}}})
             .then(curso =>{
@@ -111,10 +112,12 @@ exports.findNextClassesPerDay = (req, res) => {
                 object.Curso = cursoFinal;
                 object.Clase = clasesPendientes[i];
                 respuesta.push(object);
+                contador = contador + 1;
                 console.log('Added');
+                if (contador == clasesPendientes.length){
+                    return res.send(respuesta);
+                }
             });
         }
-        console.log('Send');
-        return res.send(respuesta);
     });
 };

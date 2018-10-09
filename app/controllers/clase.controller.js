@@ -112,11 +112,11 @@ exports.findNextClassesPerDay = (req, res) => {
                 object.Curso = cursoFinal;
                 object.Clase = clasesPendientes[i];
                 respuesta.push(object);
-                contador = contador + 1;
                 console.log('Added');
                 if (contador == clasesPendientes.length){
                     return res.send(respuesta);
                 }
+                contador = contador + 1;
             });
         }
     });

@@ -114,6 +114,7 @@ exports.findNextClassesPerDay = (req, res) => {
                 console.log('Added');
             });
         }
+        console.log('Send');
         return res.send(respuesta);
     });
 };

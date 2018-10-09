@@ -52,6 +52,7 @@ POST    /cursos                 		Crea un curso (ver modelo abajo)
 GET     /cursos                 		Retorna todos los cursos
 GET     /clases/{dia}           		Retorna las clases de un día
 GET     /clases/{dia}/{hora}    		Retorna la clase más cercana + info del curso
+GET		/clasesPendientes/{dia}/{hora}	Retorna las clases pendientes del día empezando por la más cercana
 GET	/trabajos/{cursoID}/{fecha}		Retorna el trabajo más cercano de un curso
 GET	/examenes/{cursoID}/{fecha}		Retorna el examen más cercano de un curso
 GET	/notas/{cursoID}			Retorna todas las notas de un curso

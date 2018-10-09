@@ -111,9 +111,8 @@ exports.findNextClassesPerDay = (req, res) => {
                 object.Curso = cursoFinal;
                 object.Clase = clasesPendientes[i];
                 respuesta.push(object);
+                console.log('Added');
             });
         }
-
-        return res.send(respuesta);
     });
 };

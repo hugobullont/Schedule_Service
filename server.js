@@ -20,6 +20,7 @@ require('./app/routes/clase.routes.js')(app);
 require('./app/routes/trabajo.routes.js')(app);
 require('./app/routes/examen.routes.js')(app);
 require('./app/routes/nota.routes.js')(app);
+require('./app/routes/computadora.routes.js')(app);
 
 // listen for requests
 app.listen(80, () => {

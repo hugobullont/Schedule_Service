@@ -52,15 +52,23 @@ POST    /cursos                 		Crea un curso (ver modelo abajo)
 GET     /cursos                 		Retorna todos los cursos
 GET     /clases/{dia}           		Retorna las clases de un día
 GET     /clases/{dia}/{hora}    		Retorna la clase más cercana + info del curso
-GET		/clasesPendientes/{dia}/{hora}	Retorna las clases pendientes del día empezando por la más cercana
+GET	/clasesPendientes/{dia}/{hora}		Retorna las clases pendientes del día empezando por la más cercana
 GET	/trabajos/{cursoID}/{fecha}		Retorna el trabajo más cercano de un curso
 GET	/examenes/{cursoID}/{fecha}		Retorna el examen más cercano de un curso
 GET	/notas/{cursoID}			Retorna todas las notas de un curso
 GET	/notasAcumuladas			Retorna todas las notas acumuladas
+
+POST	/computadoras				Crea una computadora usable (ver modelo abajo)
+GET	/computadoras				Retorna todas las computadoras
+GET 	/computadoras/{computadoraID}		Retorna la computadora por su id
+PUT 	/computadoras/{sede}/{numero}/{hora}	Retorna una afirmación o no de disponibilidad y reserva de una computadora
+DELETE	/computadoras/{computadoraID}		Borra una computadora por id
 ```
 Considera dia como un día de la semana en español (ejemplo: Lunes) y la hora en el formato HHMM como número. (Para las fechas: YYYYMMDD).
 
-A continuación el modelo de body que debes mandar en el POST de Curso:
+A continuación el modelo de body que debes mandar en:
+
+	POST de Curso:
 
 ```
     {
@@ -97,7 +105,15 @@ A continuación el modelo de body que debes mandar en el POST de Curso:
 		}]
     }
 ```
-
+	POST de Computadoras:
+```
+    {
+	"sede": "MO",
+    	"numero": 1,
+    	"disponibles":  [1,1,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ],
+    	"horas": 	[8,9,10,11,12,13,14,15,16,17,18,19,20]
+    }
+```
 Para probar puedes utilizar las siguientes llamadas:
 
 ```

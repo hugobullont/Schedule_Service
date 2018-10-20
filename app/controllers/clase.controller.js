@@ -113,9 +113,8 @@ exports.findNextClassesPerDay = (req, res) => {
                     object.Clase = item;
                     resp.push(object);
                 });
-
-                return res.send(resp);
-            }  
+            } 
+            return res.send(resp); 
         }
 
         generateObject(clasesPendientes,respuesta);

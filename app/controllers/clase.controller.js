@@ -103,7 +103,7 @@ exports.findNextClassesPerDay = (req, res) => {
         var contador = 0;
         var ids = []
         for (var i = 0; i < clasesPendientes.length; i++){
-            ids.push(clasesPendients._id);
+            ids.push(clasesPendientes._id);
         }
 
         for (var i = 0; i < clasesPendientes.length; i++){

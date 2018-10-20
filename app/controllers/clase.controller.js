@@ -101,7 +101,7 @@ exports.findNextClassesPerDay = (req, res) => {
         var final = clasesPendientes.length;
         var contador = 0;
         for (var i = 0; i < clasesPendientes.length; i++){
-            Curso.findOne({'clases': {$elemMatch: {'_id': clasesPendientes[i]._id}}})
+            Curso.findOne({'clases._id':  clasesPendientes[i]._id})
             .then(curso =>{
                 var object = new Object();
                 var cursoFinal = new Object();
@@ -109,8 +109,6 @@ exports.findNextClassesPerDay = (req, res) => {
                 cursoFinal.nombre = curso.nombre;
                 cursoFinal.profesor = curso.profesor;
                 cursoFinal.faltasRestantes = curso.faltasRestantes;
-                console.log(cursoFinal);
-                console.log(clasesPendientes[contador]);
                 object.Curso = cursoFinal;
                 object.Clase = clasesPendientes[contador];
                 respuesta.push(object);

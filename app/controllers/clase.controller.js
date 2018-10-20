@@ -108,7 +108,7 @@ exports.findNextClassesPerDay = (req, res) => {
         console.log(ids);
         for (var i = 0; i < clasesPendientes.length; i++){
             console.log(clasesPendientes[i]._id);
-            Curso.findOne({'clases._id':  ids[contador]})
+            Curso.findOne({'clases._id':  ids[i]})
             .then(curso =>{
                 console.log(curso.nombre);
                 var object = new Object();

@@ -115,7 +115,7 @@ exports.findNextClassesPerDay = (req, res) => {
                 cursos.push(curso);
             });
         }
-
+        console.log(cursos);
         for (var i = 0; i < clasesPendientes.length; i++){
             var object = new Object();
             var cursoFinal = new Object();

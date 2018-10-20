@@ -99,33 +99,13 @@ exports.findNextClassesPerDay = (req, res) => {
         if(clasesPendientes.length === 0){
             return res.send({message: "No hay Clases"});
         }
-        var final = clasesPendientes.length;
-        var contador = 0;
-        var ids = [];
-        for (var i = 0; i < clasesPendientes.length; i++){
-            ids.push(clasesPendientes[i]._id);
-        }
-
-        var cursos = [];
-        console.log(ids);
-        for (var i = 0; i < clasesPendientes.length; i++){
-            console.log(clasesPendientes[i]._id);
-            Curso.findOne({'clases._id':  ids[i]})
-            .then(curso =>{
-                responseClases(curso,clasesPendientes[contador],contador,respuesta)
-                .then((obj,con) =>{
-                    if(con==final-1){
-                        return res.send(obj);
-                    }
-                });
-            });
-        }
         
-                
+        return res.send(clasesPendientes);
+        
     });
 };
 
-function responseClases(curso,clase,counter,respuesta){
+/*function responseClases(curso,clase,counter,respuesta){
     return new Promise((resolve,reject)=>{
         var object = new Object();
             var cursoFinal = new Object();
@@ -140,4 +120,4 @@ function responseClases(curso,clase,counter,respuesta){
             resolve(respuesta);
             resolve(counter);
     });
-}
+}*/

@@ -100,7 +100,25 @@ exports.findNextClassesPerDay = (req, res) => {
             return res.send({message: "No hay Clases"});
         }
         
-        return res.send(clasesPendientes);
+        async function generateObject(array,resp){
+            for (const item of array){
+                await Curso.findOne({'clases._id':  item._id}).then(curso => {
+                    var object = new Object();
+                    var cursoFinal = new Object();
+                    cursoFinal._id = curso._id;
+                    cursoFinal.nombre = curso.nombre,
+                    cursoFinal.profesor = curso.profesor;
+                    cursoFinal.faltasRestantes = curso.faltasRestantes;
+                    object.Curso = cursoFinal;
+                    object.Clase = item;
+                    resp.push(object);
+                });
+
+                return res.send(resp);
+            }  
+        }
+
+        generateObject(clasesPendientes,respuesta);
         
     });
 };

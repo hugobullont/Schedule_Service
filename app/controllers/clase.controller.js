@@ -112,27 +112,32 @@ exports.findNextClassesPerDay = (req, res) => {
             console.log(clasesPendientes[i]._id);
             Curso.findOne({'clases._id':  ids[i]})
             .then(curso =>{
-                cursos.push(curso);
+                responseClases(curso,clasesPendientes[contador],contador,respuesta)
+                .then((obj,con) =>{
+                    if(con==final-1){
+                        return res.send(obj);
+                    }
+                });
             });
         }
-        console.log(cursos);
-        for (var i = 0; i < clasesPendientes.length; i++){
-            var object = new Object();
-            var cursoFinal = new Object();
-            cursoFinal._id = cursos[i]._id;
-            cursoFinal.nombre = cursos[i].nombre,
-            cursoFinal.profesor = cursos[i].profesor;
-            cursoFinal.faltasRestantes = cursos[i].faltasRestantes;
-            object.Curso = cursoFinal;
-            object.Clase = clasesPendientes[i];
-            respuesta.push(object);
-            console.log('Added');
-            if (i == clasesPendientes.length - 1){
-                return res.send(respuesta);
-            }
-        }
-
         
                 
     });
 };
+
+function responseClases(curso,clase,counter,respuesta){
+    return new Promise((resolve,reject)=>{
+        var object = new Object();
+            var cursoFinal = new Object();
+            cursoFinal._id = curso._id;
+            cursoFinal.nombre = curso.nombre,
+            cursoFinal.profesor = curso.profesor;
+            cursoFinal.faltasRestantes = curso.faltasRestantes;
+            object.Curso = cursoFinal;
+            object.Clase = clase;
+            respuesta.push(object);
+            counter = counter + 1;
+            resolve(respuesta);
+            resolve(counter);
+    });
+}

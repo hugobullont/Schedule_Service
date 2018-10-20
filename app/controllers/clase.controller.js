@@ -1,14 +1,6 @@
 const Clase = require('../models/clase.models.js');
 const Curso = require('../models/node.models.js');
 
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
-    }
-  }
 
 // Retrieve and return all clases from the database.
 exports.findPerDay = (req, res) => {
@@ -109,9 +101,14 @@ exports.findNextClassesPerDay = (req, res) => {
         }
         var final = clasesPendientes.length;
         var contador = 0;
+        var ids = []
+        for (var i = 0; i < clasesPendientes.length; i++){
+            ids.push(clasesPendients._id);
+        }
+
         for (var i = 0; i < clasesPendientes.length; i++){
             console.log(clasesPendientes[i]._id);
-            Curso.findOne({'clases._id':  clasesPendientes[i]._id})
+            Curso.findOne({'clases._id':  ids[contador]._id})
             .then(curso =>{
                 console.log(curso.nombre);
                 var object = new Object();
@@ -131,7 +128,6 @@ exports.findNextClassesPerDay = (req, res) => {
                 object = new Object();
                 cursoFinal = new Object();
             });
-            sleep(1000);
         }
     });
 };

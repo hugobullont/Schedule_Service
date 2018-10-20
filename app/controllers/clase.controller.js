@@ -117,6 +117,8 @@ exports.findNextClassesPerDay = (req, res) => {
                     return res.send(respuesta);
                 }
                 contador = contador + 1;
+                object = new Object();
+                cursoFinal = new Object();
             });
         }
     });

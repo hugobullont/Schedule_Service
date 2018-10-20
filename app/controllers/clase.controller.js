@@ -109,6 +109,7 @@ exports.findNextClassesPerDay = (req, res) => {
                 cursoFinal.nombre = curso.nombre;
                 cursoFinal.profesor = curso.profesor;
                 cursoFinal.faltasRestantes = curso.faltasRestantes;
+                console.log(clasesPendientes[contador]);
                 object.Curso = cursoFinal;
                 object.Clase = clasesPendientes[contador];
                 respuesta.push(object);
@@ -118,8 +119,6 @@ exports.findNextClassesPerDay = (req, res) => {
                 }
                 contador = contador + 1;
             });
-            //contador = contador + 1;
         }
-
     });
 };

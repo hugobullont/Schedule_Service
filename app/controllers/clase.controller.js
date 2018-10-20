@@ -116,11 +116,10 @@ exports.findNextClassesPerDay = (req, res) => {
                 if (contador == clasesPendientes.length - 1){
                     return res.send(respuesta);
                 }
-                //contador = contador + 1;
+                contador = contador + 1;
             });
-            contador = contador + 1;
+            //contador = contador + 1;
         }
 
-        return res.send(respuesta);
     });
 };

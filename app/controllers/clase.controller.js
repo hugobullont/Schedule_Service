@@ -120,5 +120,7 @@ exports.findNextClassesPerDay = (req, res) => {
             });
             contador = contador + 1;
         }
+
+        return res.send(respuesta);
     });
 };
